@@ -1,0 +1,52 @@
+* ansible
+**  整体规划：
+
+    1. Ansible puppet 选择问题？
+    2. 主要解决当前新服务器部署，同时要考虑以后加入老服务器
+    3. 将每个 role 或 module(puppet) 改写为函数形式
+    4. 更改变量组织结构，独立每个变量(如何看待变量，可以为单独的值或一个结构化的
+       变量)
+    5. 是否废除 lims2 命令？
+    6. docker 服务数据存放点是否更改？
+
+** 基础服务
+
+   - docker :: 使用当前配置即可
+
+   - nginx :: 将 location 列为单独文件，以 include 方式加载到 server 中
+
+   - mail :: 使用当前配置即可
+
+   - logrotate :: 依赖于安装了哪些服务，依赖于变量如何编写
+
+   - users :: 暂时使用当前配置
+
+   - ssh :: 暂时使用原有配置
+
+   - python :: 使用宿主机的 python（简单安装即可）
+
+   - ntp :: 选择服务地址（使用 vpn 地址同步时间？）
+
+   - cron :: 如何获得 cron，如何添加到宿主机（前提需要有 lims 2）
+
+** 基础 docker 服务
+
+   - reserv-server :: 涉及到在宿主机添加 nginx 配置
+   
+   - 增加 cf 数据库 :: genee 用户密码问题，修改 lims2 容器中的脚本以适应带密码的
+		       genee用户，或者更改 mariadb 镜像，取消 genee 用户密码。
+
+   - 添加 cf 用户 :: 使用 shell 命令进行添加
+
+   - 修改目录权限 :: 涉及到 /home/disk /var/lib/php5 使用 file 即可修改
+
+   - 补全 spinx 配置 :: 需要 lims2 已经正常启动（具体过程不明）？
+
+   - 各种 docker 服务 :: 采用服务器端构建镜像，目的是节省传输时间。采用 U 盘或光
+        盘构建的话可以保证准确性（光盘的话可以构建一个公司自己的定制化光盘）
+
+** 可选服务
+** 最终 app
+   
+   - lims2 :: 涉及到 nginx、php 配置，及如何启动 lims2，涉及到如何升级 lims2
+   - backup :: 是否需要调整 lims2、docker 服务中数据存放点，简化准确备份。
