@@ -41,12 +41,11 @@
     保证在用时较少的情况下完成归纳工作。
 
     1. 暂时手动将站点信息收集到
-       - servers.genee.cn
        - docker-bind9
        - ansible
     2. Ansible 收集近乎所有站点信息。目前已将 lims2spec 信息全部纳入到 ansible
        中。但未对这些信息做相应处理，在完善 ansible 的过程中会充分利用这些信息。
-       将备份、监控、vpn 纳入到 ansible 的管理范围
+       将servers.genee.cn、备份、监控、vpn 纳入到 ansible 的管理范围
     3. 保持server.genee.cn、docker-bind9 中信息种类不变。
 
 *** 针对缺少大部分自动部署措施的解决办法
