@@ -10,7 +10,7 @@
     3. 将每个 role 改写为函数形式
        - 解藕，为后期从 servers.genee.cn 获取数据做准备
 
-    4. 是否停用 lims2 命令？
+    4. 停用 lims2 命令
        - ansible 可以使用 docker 模块建立容器
        - 可以将 lims2spec 中的信息添加到 ansible 后，ansible 可以
 
