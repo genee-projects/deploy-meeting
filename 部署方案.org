@@ -45,7 +45,7 @@
 *** 针对缺少大部分自动部署措施的解决办法
     以上的主要出发点、主要对象已与马睿沟通。针对缺少大部分自动部署措施的解决办法
     已与马睿做了详细讨论。讨论结果可以参考：
-    https://github.com/genee-tools/deploy-meeting/blob/master/README.org
+    https://github.com/genee-tools/deploy-meeting/blob/master/ansible.org
 
 *** 针对 Docker 镜像传输较耗时的解决办法
     1. 将 docker 镜像保存为独立的文件，由工程师带到现场，拷贝到服务器中即可（较
