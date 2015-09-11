@@ -13,12 +13,17 @@
    2. nginx：将 location 列为单独文件，以 include 方式加载到 server 中
    3. mail：使用 postfix 替换 msmtp (确保端口不对外开放)，之前遇到了 msmtp 发信
       慢的情况，后改换过 postfix 提高性能。
+
+   25%
+
    4. logrotate：依赖于安装了哪些服务，依赖于变量如何编写
    5. users：暂时使用当前配置
    6. ssh：暂时使用原有配置
    7. python：使用宿主机的 python
    8. ntp：选择服务地址（使用 vpn 地址同步时间？）添加 ntp 地址为 ntp.genee.in
    9. cron：（前提需要有 lims2）使用 shell 模块获得 cron
+
+   50%
 
 ** 基础 docker 服务
 
@@ -31,6 +36,9 @@
    4. 修改目录权限：涉及到 /home/disk /var/lib/php5 使用 file 即可修改
    5. 补全 spinx 配置：通过lims2的get_sphinx.php获得新的 sphinx 配置, 将该配置与
       原有配置进行比对, 如果发生变化则覆盖, 再重新刷索引
+
+   75%
+
    6. 各种 docker 服务：使用 docker 模块编写。并采用U盘或光盘传输镜像。
 
 ** 最终 app
@@ -41,3 +49,5 @@
       - nginx 配置(使用 ansible 自动生成)
       - docker 服务配置(使用 ansible 自动生成)
       - /var/lib/lims2/（直接由 lims2 代码库管理）
+
+   100%
